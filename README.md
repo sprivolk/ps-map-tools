@@ -56,7 +56,8 @@ A unit is CS's: 16 units = 0.4 m; a player is 72 units tall, 32 wide; a step at 
 Stairs, arches, rooms, cylinders, walls with doors and floors with holes keep their settings: they open at the mouse
 right after the tool (later: **F**, or the **Object** tab); change one, it is built again where it stands, and **Ctrl+Z**
 takes back that one change (not the whole door). **Sizes on the grid** (on by default) keeps the sizes and offsets in
-whole grid steps. Edited by hand in Edit Mode, or scaled, it becomes a plain brush.
+whole grid steps. Edited by hand in Edit Mode, or scaled, it becomes a plain brush. A wall with openings made plain so (its pieces round the holes) becomes one again with **Wall with
+openings again** (Object tab): its holes are found between the pieces.
 
 **Materials** (Build tab or Shift+Q): **Colours** (just colours), **Surfaces** (what bullets go through and how steps
 sound: concrete, metal, wood…), **Tools**: Player clip (invisible wall), Nodraw (a face not drawn), Grenade clip, Block

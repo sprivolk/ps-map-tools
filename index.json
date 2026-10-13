@@ -7,7 +7,7 @@
       "id": "ps_map_tools",
       "name": "PlaceholderShooter map tools",
       "tagline": "Make PlaceholderShooter maps in Blender, as in Hammer",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "type": "add-on",
       "maintainer": "sprivolk",
       "license": [
@@ -23,9 +23,9 @@
         "Modeling",
         "Import-Export"
       ],
-      "archive_url": "./ps_map_tools-0.3.1.zip",
-      "archive_size": 131876,
-      "archive_hash": "sha256:dc1100998ada0a582864a76ab402854577b0fb76367cd43596bbc197fb247f43"
+      "archive_url": "./ps_map_tools-0.3.2.zip",
+      "archive_size": 133648,
+      "archive_hash": "sha256:d35a3321116f3db0e641116669dc914292917c44edaec0387ba1362405851e78"
     }
   ]
 }
