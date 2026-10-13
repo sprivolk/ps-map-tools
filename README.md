@@ -39,12 +39,17 @@ A unit is CS's: 16 units = 0.4 m; a player is 72 units tall, 32 wide; a step at 
 ## Building
 
 - **Draw brush**: drag a rectangle in a flat view (top, front, side), then drag its height in another. Enter: done.
-- **Resize**: drag the yellow handles of the selected brushes in a flat view; they go along the grid.
+- **Resize**: drag the yellow handles of the selected brushes in a flat view; they go along the grid. A room or a wall
+  with openings sizes the same way: its sides move its walls, the doors and windows stay where they are. Its doors and
+  windows show cyan frames (in the views facing their wall; from above, along it): drag inside one to move it, its edge
+  to size it. Holes in floors and ceilings have the same frames: from above both ways, from the side along the floor.
 - **Box**, **Snap** (corners onto the grid), **Square** (a crooked box made square), **Split** (a mesh into brushes).
-- **Make a room**: the selected box becomes a hollow room (floor, walls, ceiling).
+- **Make a room**: the selected box becomes a hollow room (floor, walls, ceiling), one object keeping its settings (the
+  export makes it brushes). **Split into brushes** (Object tab): its floor, ceiling and four walls as objects of their
+  own, the walls keeping their doors and windows, the floor and ceiling their holes — each moved or resized apart.
 - **Door / Window**: select a wall (or a room), put the 3D cursor where the opening goes (Shift + right click on it),
   press it; F9 or the Object tab: width, height, from the floor, top Flat or **Arch**.
-- **Hole**: the same in a floor or a ceiling.
+- **Hole**: the same in a floor or a ceiling (a room's too: the cursor on its floor or its ceiling).
 - **Stairs**, **Arch** (an archway or a tunnel), **Cylinder**: at the 3D cursor, or filling the box selected.
 - **Cut with a plane**: a brush in two, through the 3D cursor.
 
