@@ -40,9 +40,14 @@ A unit is CS's: 16 units = 0.4 m; a player is 72 units tall, 32 wide; a step at 
 
 - **Draw brush**: drag a rectangle in a flat view (top, front, side), then drag its height in another. Enter: done.
 - **Resize**: drag the yellow handles of the selected brushes in a flat view; they go along the grid. A room or a wall
-  with openings sizes the same way: its sides move its walls, the doors and windows stay where they are. Its doors and
+  with openings sizes the same way: its sides move its walls, the doors and windows stay where they are. Straight
+  stairs too: taller, more steps (each as high as before, 18 units at most), longer, deeper steps (their number: F). Its doors and
   windows show cyan frames (in the views facing their wall; from above, along it): drag inside one to move it, its edge
   to size it. Holes in floors and ceilings have the same frames: from above both ways, from the side along the floor.
+  **V** in Resize: the edges (Hammer's vertex tool) — white squares on the brush's corners; drag one in a flat view
+  and the edge behind it moves along the grid: a slanted side (a wall slanted on one side only, a parallelogram), or
+  onto another corner, a wedge. Not where the brush would get a dent. V again: the sides. Plain brushes only (a room:
+  Split into brushes first).
 - **Box**, **Snap** (corners onto the grid), **Square** (a crooked box made square), **Split** (a mesh into brushes).
 - **Make a room**: the selected box becomes a hollow room (floor, walls, ceiling), one object keeping its settings (the
   export makes it brushes). **Split into brushes** (Object tab): its floor, ceiling and four walls as objects of their
@@ -52,6 +57,12 @@ A unit is CS's: 16 units = 0.4 m; a player is 72 units tall, 32 wide; a step at 
 - **Hole**: the same in a floor or a ceiling (a room's too: the cursor on its floor or its ceiling).
 - **Stairs**, **Arch** (an archway or a tunnel), **Cylinder**: at the 3D cursor, or filling the box selected.
 - **Cut with a plane**: a brush in two, through the 3D cursor.
+- **Cut through** (a way through a slanted wall, a tunnel's end): make a brush of the hole's shape (Box, Arch,
+  Cylinder) going right through the wall, select the wall (or several brushes), then the cutter last (Shift + click),
+  press it (Brush tools, Q or the Object tab). The cutter becomes a wire, not exported: move it (G) or **Resize** it and
+  the hole follows; its material is the hole's sides. A room or a wall keeps its settings under the cut. Deleted, the
+  hole closes. **Apply cut** makes the hole for good (the cutter goes; a room or a wall becomes a plain brush). View →
+  **Cutters** shows or hides them.
 
 Stairs, arches, rooms, cylinders, walls with doors and floors with holes keep their settings: they open at the mouse
 right after the tool (later: **F**, or the **Object** tab); change one, it is built again where it stands, and **Ctrl+Z**
@@ -83,6 +94,41 @@ plane flicker in the game — **Check the map** finds them.
 
 **Entities** tab: Spawn T / CT, Bomb site A / B, Buy zone T / CT, Lamp, Sun, Kill zone, Ladder, radar markers — at the 3D
 cursor. With a brush selected, Ladder and the zones turn that brush into them (drawn to the size wanted).
+
+**The sun**: its arrow is where the light goes — turn it with **R** (where it stands does not matter, only its way);
+the Object tab says how far down and toward where. **Preview sun** (View tab, or the Object tab) puts a Blender sun on
+its arrow: the views (Material Preview) show its shadows while you turn it. Not exported: the bake makes its own.
+
+**Ambient zone** (Entities; a brush selected becomes one): a volume whose dark places the bake lifts a little — walls,
+floors and the probes players are lit by — so a dark room stays dark but players are seen. Only the dark: where a lamp
+or the sun already lights it, hardly anything changes. Object tab: its **Color**, **Brightness** (how light its
+darkest places get: 0.06 a dark room; more gets flat and grey) and **Fade** (units past its sides over which it
+fades out, smoothly: no seam; within it, all of it — walls as lit as players). Baked light only (Bake Fast / Final).
+
+## Models
+
+A mesh made elsewhere (a plant, a pot, a staircase from a library) goes on the map as a **model**: select it, Object
+tab → **Make model**. It moves into the map's **Models** collection and stays as it is — its own UVs, materials and
+smoothing; its modifiers and particles (a plant's leaves) applied at export — lit by the probes as players are (not
+baked). A model does not collide itself: a **collision box** (the Collision tool: invisible, stops players and bullets,
+its surface the bullets meet) is made round it, parented to it — it moves and turns with the model; Resize trims it,
+**Add collision box** adds more, deleting it leaves none. **Make brush again** turns it back. Check map warns of meshes
+that are neither brushes nor models: the game leaves them out.
+
+**Simplify** (a model's Object tab): fewer triangles — Blender's Decimate as its last modifier, applied at export, the
+mesh itself kept. Auto goes by its size (about 1 500 triangles a metre: a chair a couple of thousand, not hundreds of
+thousands); the **Keep** slider sets it, the tab shows the triangles before and after; X: as it was.
+
+**Leaves as pictures** (a model's Object tab): its flat parts — the leaves its particles scatter, or the model itself
+when flat (thinner than a 20th of its size) — drawn as **cards**: a square of two triangles with their picture seen from
+above, transparent round it. The same look for a few hundredth of the triangles (a modelled leaf of 948 faces, thousands
+on a plant). Seen in Blender at once; the originals are kept, hidden and left out of the export; the pictures are saved
+in the map's `cards` folder and made once. Pressed again: the originals back. Check map tells when the models weigh more
+than a phone draws smoothly (300 000 triangles), and which most.
+
+**Pictures** (Play tab: 512 / 1024 / 2048): at export each material keeps only its colour picture (the game draws no
+normal, roughness or height pictures), at most that size, and how it lies (a Mapping node's scale and offset); the
+textures are drawn through the UV map Blender renders with.
 
 ## Playing it
 
