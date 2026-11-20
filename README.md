@@ -74,6 +74,22 @@ openings again** (Object tab): its holes are found between the pieces.
 sound: concrete, metal, wood…), **Tools**: Player clip (invisible wall), Nodraw (a face not drawn), Grenade clip, Block
 bullets, Kill zone, Ladder.
 
+**The Art tab** (dressing the map once it plays well): **Group** — the groups as in Build, and the solo button on a group's row starts **working in it**: only it in the views, selected, in sight (Stop: everything back). **Materials** — the art library as pictures (Columns / Size under them); a picture puts its material on the selected brushes (in Edit Mode: the selected faces) and makes it the current one; **Pick** (eyedropper) takes the material of a face clicked in the view as the current one, **Put** puts the current one.
+
+**Faces** (Art tab): Hammer's face edit on the selected faces (in Object Mode: all faces of the selected brushes) — the texture moved by the grid step (arrows), turned 90°, ×2 / ÷2, **Fit** (the picture once over the face), **Fit ↔** (once across), **Copy active face**, **Reset**. Kept in face attributes (ps_tex_off, ps_tex_scale, ps_tex_rot) the world UVs are made through, so they stay when the brush moves; a mirror copy takes them (a maker's brush, built again, loses them). **Patchwork**: **Cut into sheets** (Edit Mode: the selected faces cut on the world grid of 1.2 × 2.4 m sheets, the textures' seams), a **mix** list (Add the current material; the first one is the main), **Mix** (the mix over the selected faces at random; F9: seed, how many keep the first), **Shuffle sheets** (each face's texture shifted by whole sheets and turned round at random).
+
+**Art materials** (Art tab): the map's real look, from a shared library — `ArtSource/Materials/<name>/` (another folder: the add-on's preferences), a folder per material with its colour picture and `material.json` (`{"surface": "plaster", "size": 2.0}`: what bullets and steps meet, how many metres the picture covers). **New from picture** copies a picture in (a downloaded set's `_Color` picture: the rest is left, the game draws colour only). A button puts it on the selected brushes (in Edit Mode: on the selected faces); it lies by the world like the Dev textures, the same size on every brush, so walls meet without seams. **⇄** puts it instead of the active object's active material on all the selected (a group selected: Dev Plaster → the house's plaster everywhere). The active art material's size and surface are set below the list and kept in the library; **Look again** brings the file's art materials up to the library (a picture painted over).
+
+**Groups** (Build tab): **Into a group** names the selected objects (the house); each group's row selects it (Shift: adds), shows only it in every view (pressed again: all back) or renames it. The objects stay in their collections: the export and the mirror are as before.
+
+**Trims** (Art tab): a profile along a line — beams, planks, skirtings, door frames, pipes, rails. In Edit Mode (edge select) pick edges, on one brush or several: **Trim from selected edges** makes one trim; edges meeting end to end become one line, the corners mitred (a frame round a door is one piece). Its settings, live: profile (**Box** width × height, **Round**, **Angle**), shift across / up, joints (Mitre / Overlap), Solid (else Detail: seen only), the material (the eyedropper button: the current one). Its own UVs run along it: the grain follows the beam on any picture. **Edit path**: the line as points (G move, E add, X remove), the trim follows; Done. **Release**: a plain brush from then on. A straight staircase selected: **Stringer** (a sloped board on each open side) and **Railing** (a handrail and posts): they follow the staircase when it changes.
+
+**Props and decals** (Art tab): **props** from ArtSource/Props/<name>.blend (the first mesh; <name>.png beside it is its picture; **Add to library** writes the active mesh there, its origin the point it stands on). **Place** (a prop's button): it follows the mouse over the surfaces standing on them — R / Shift+R turn, + / − size, Ctrl the grid, click puts it and goes on, Esc stops; a prop is a model (copies share its mesh). **Scatter** (Edit Mode, faces selected): that many at random over them, turned and sized at random. **Decals** from ArtSource/Decals/<name>/<name>.png (transparency cuts them out) + decal.json (its size); **New decal** adds a PNG; placed the same way, a flat Detail brush a hair off the face, baked as the walls.
+
+**Prefabs** (Art → Group): **Make <group> a prefab** — its objects stay where they are, the first copy; **Place copy** puts a linked copy at the 3D cursor (move it with G, turn it with R Z): change the group and every copy changes. **Make real**: a copy as objects of its own. The export makes every copy real first.
+
+**Grain pairs**: a library material with a twin named `<name>_Vertical` (the same picture turned upright: House_Beam) is one button; put on a brush, each face gets the one whose grain runs along the brush's longest side. Beams, posts and boards are drawn by hand as box brushes (make them Detail if players should pass) and get the grain right at once.
+
 A brush is **Solid** (seen and walls players), **Detail** (seen, players go through), or **No collision**.
 
 **The map's edge**: select the walls round the map, **Map edge** (Build → Brush tools): their outer side is not drawn
@@ -89,6 +105,16 @@ Faces not drawn (Nodraw, left out) still stop the baked light.
 
 Brushes may overlap: faces hidden inside other brushes are cut away at export. Two faces on top of each other in one
 plane flicker in the game — **Check the map** finds them.
+
+### Symmetric maps (Build → Mirror)
+Deathmatch and quick-mode maps are often symmetric. Choose the symmetry: **Mirror X** (left and right swap), **Mirror Y**
+(front and back swap) or **Turn 180°** (whichever side one plays, the same map), and the **Centre** — an empty outside the
+map (made at 0, 0 the first time; the cursor button puts it at the 3D cursor), its line drawn in the views. Build one half,
+select what is done and press **Copy to the other half**: each copy is placed through the centre (brushes mirrored with
+their faces outward, spawns looking the mirrored way, a door's hinges and side where the mirror puts them), T and CT
+swapped. A copy stays **linked**: it follows every move, reshape and setting of its original (and the centre's moves);
+moved by hand, it goes back. **Unlink** lets a copy be changed on its own; **Reset and link** puts it back where the
+symmetry has it, as its original is, and links it again. **Select the other half** swaps the selection to the partners.
 
 ## Entities
 
