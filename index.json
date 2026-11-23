@@ -7,7 +7,7 @@
       "id": "ps_map_tools",
       "name": "PlaceholderShooter map tools",
       "tagline": "Make PlaceholderShooter maps in Blender, as in Hammer",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "type": "add-on",
       "maintainer": "sprivolk",
       "license": [
@@ -16,16 +16,17 @@
       "blender_version_min": "5.2.0",
       "website": "https://github.com/sprivolk/ps-map-tools",
       "permissions": {
-        "files": "Exports the map beside it and starts the game on it"
+        "files": "Exports the map beside it and starts the game on it",
+        "network": "Sends the map to your GitHub repository (the GitHub tab)"
       },
       "tags": [
         "Game Engine",
         "Modeling",
         "Import-Export"
       ],
-      "archive_url": "./ps_map_tools-0.6.0.zip",
-      "archive_size": 254153,
-      "archive_hash": "sha256:6447ad09bee8fffa1380345ec2adf6840f1d30f55eadc2957303e32628e9a540"
+      "archive_url": "./ps_map_tools-0.7.0.zip",
+      "archive_size": 352585,
+      "archive_hash": "sha256:ad71cc7f7f850a1f3c267b7c88be8272320818720bb15caf15b4adfd2441ee7f"
     }
   ]
 }
